@@ -7,10 +7,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function FormDialog() {
+interface FormDialogueprops{
+  setUname:(a:string)=>void,
+}
+
+export default function FormDialog({setUname}:FormDialogueprops) {
   const [open, setOpen] = React.useState(false);
-  //const [uuid, setUuid] = React.useState("")
-  let uname = ''
+  let uname=''
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,6 +22,8 @@ export default function FormDialog() {
   const handleClose = () => {
     localStorage.setItem('uname', uname);
     setOpen(false);
+    setUname(uname)
+    console.log(uname)
   };
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>{
     uname = e.target.value
@@ -43,7 +48,6 @@ export default function FormDialog() {
             type="string"
             fullWidth
             onChange={handleChange} 
-            //value={uuid}
           />
         </DialogContent>
         <DialogActions>

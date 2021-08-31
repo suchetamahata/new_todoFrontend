@@ -20,25 +20,25 @@ return(<>
                    <Link to='/' className='cardh'> Home</Link>
                </li>
                <li>
-                   <Link to='create'  className='card'> Create Todos </Link>
+                   <Link to='/create'  className='card'> Create Todos </Link>
                </li>
                <li>
-                   <Link to='view'  className='cardv' > View Todos</Link>
+                   <Link to='/view'  className='cardv' > View Todos</Link>
                </li>
            </ul>
        </div>
        <Switch>
-           <Route path='/create'>
+            <Route exact path='/'>
+               <Home/>
+           </Route>
+           <Route exact path='/create'>
                <CreateTodos/>
            </Route>
            <Route path='/view/:uname'>
                 <ViewTodos/>
            </Route>
-           <Route path='/view'> 
+           <Route exact path='/view'> 
                 <ViewUuid /> 
-           </Route>
-           <Route path='/'>
-               <Home/>
            </Route>
        </Switch>
    </Router>

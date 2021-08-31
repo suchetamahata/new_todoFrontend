@@ -3,7 +3,7 @@ import FormDialog from '../components/materialUiForm'
 
 const Home =() =>{
 
-    const [uname, setUname] = useState('Your')
+    const [uname, setUname] = useState<string>('Your')
 
     useEffect(() => { 
         if(localStorage.getItem('uname') !== null){
@@ -12,9 +12,9 @@ const Home =() =>{
     }, [uname])
     return(
         <div>
-            <h1 className='head-text'>{uname}'s ToDo List</h1>
+            <h3 className='head-text'>{uname}'s ToDo List</h3>
            <h5 className='wel-text'> What would you like to do today ?</h5>
-           <FormDialog></FormDialog>
+           <FormDialog {...{setUname}}></FormDialog>
         </div>
     )
 }
