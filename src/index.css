@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin:2rem;
   background-image: url("https://marketplace.canva.com/EADaov-Uw3Q/1/0/1600w/canva-dark-blue-astronaut-motivational-desktop-wallpaper-54LOl01C2ws.jpg");
@@ -13,3 +17,12 @@ code {
     monospace;
 }
 
+@media(max-width:600px){
+  html{
+    font-size: 55%;
+  }
+}
+
+html{
+  font-size: 62.5%;
+}
