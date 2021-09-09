@@ -37,25 +37,24 @@
 .cardh{
   color:rgb(240, 242, 247);
   margin-right: 2rem;
-  position: fixed;
-  top: 7rem;
-  left: 2rem;
+  display: flex;
+  -ms-flex-align: start;
   font-size:1.5rem;
+  padding-bottom: 1rem;
 }
 .card{
   color: white;
   margin-right: 2rem;
-  position: fixed;
-  top: 1rem;
-  left: 2rem;
+  display: flex;
+  -ms-flex-align: start;  
   font-size:1.5rem;
+  padding-bottom: 1rem;
 }
 
 .cardv{
   color: white;
   margin-right: 2rem;
-  position: fixed;
-  top: 4rem;
-  left: 2rem;
+  display: flex;
+  -ms-flex-align: start;
   font-size:1.5rem;
 }

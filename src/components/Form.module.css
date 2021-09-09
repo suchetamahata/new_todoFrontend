@@ -2,6 +2,8 @@
     display:flex;
     justify-content:center;
     padding: auto;
+    display:flex;
+    justify-content: center;
 }
 
 .submitBtn{
@@ -18,14 +20,14 @@
     width: 15rem;
     height:1.9rem;
     border-radius: 1rem;
-    padding: 0.5rem;
-    outline:none
+    padding: 1.3rem;
+    outline:none;
 }
 
 .option{
-    width: 10rem;
+    width: 7rem;
     height:2rem;
-    margin-left: 5rem;
+    margin-left: 1.3rem;
     border-radius:1rem;
     background-color: rgb(197, 198, 201);
     font-size:1.2rem ;

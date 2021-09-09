@@ -36,8 +36,8 @@ const Form = ({setInputText, todos, setTodos, inputText, setStatus }: FormProps)
             </button>
                 <select onChange={statusHandler} name='todos' className={styles.option}>
                     <option value='all'>View All</option>
-                    <option value='completed'>Completed</option>
-                    <option value='uncompleted'>Uncompleted</option>
+                    <option value='completed'>Done</option>
+                    <option value='uncompleted'>Not Done</option>
                 </select>
         </form>
         </div>

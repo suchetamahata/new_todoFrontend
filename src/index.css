@@ -1,6 +1,11 @@
 *{
   box-sizing: border-box;
 }
+@media(max-width: 320px){
+  html{
+    font-size: 50%;
+  }
+}
 
 body {
   margin:2rem;
@@ -17,11 +22,7 @@ code {
     monospace;
 }
 
-@media(max-width:600px){
-  html{
-    font-size: 55%;
-  }
-}
+
 
 html{
   font-size: 62.5%;
