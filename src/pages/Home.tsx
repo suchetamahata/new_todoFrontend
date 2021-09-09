@@ -4,6 +4,7 @@ import FormDialog from '../components/materialUiForm'
 const Home =() =>{
 
     const [uname, setUname] = useState<string>('Your')
+    const [password, setPassword] = useState<string>('')
 
     useEffect(() => { 
         if(localStorage.getItem('uname') !== null){
@@ -13,8 +14,8 @@ const Home =() =>{
     return(
         <div>
             <h3 className='head-text'>{uname}'s ToDo List</h3>
-           <h5 className='wel-text'> What would you like to do today ?</h5>
-           <FormDialog {...{setUname}}></FormDialog>
+           <h5 className='wel-text'> What would you like to do?</h5>
+           <FormDialog  setUname={setUname} setPassword={setPassword} password={password} uname={uname}></FormDialog>
         </div>
     )
 }

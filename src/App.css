@@ -4,7 +4,7 @@
   padding: 0rem; 
   display: flex;
   justify-content:center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family:sans-serif
 }
 .home-text{
@@ -22,7 +22,7 @@
   padding: 2rem; 
   display: flex;
   justify-content:center;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-family:sans-serif
 }
 
@@ -57,4 +57,30 @@
   display: flex;
   -ms-flex-align: start;
   font-size:1.5rem;
+}
+
+
+@media (max-width:425px) {
+  .head-text{
+    font-size: 2.5rem;
+  }
+  .wel-text{
+    font-size: 2rem;
+  }
+}
+@media (max-width:375px){
+  .head-text{
+    font-size: 2rem;
+  }
+  .wel-text{
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 320px) {
+  .head-text{
+    font-size: 1.5rem;
+  }
+  .wel-text{
+    font-size: 1rem;
+  }
 }

@@ -4,7 +4,7 @@
 import { AiOutlineSave } from 'react-icons/ai'
 import "react-notification-alert/dist/animate.css";
 
-import FormDialog from '../../components/materialUiForm';
+//import FormDialog from '../../components/materialUiForm';
 import Form from '../../components/Form'
 import TodoList from '../../components/TodoList'
 import React,{useState, useEffect} from 'react'
@@ -60,9 +60,10 @@ function App() {
   fetch('http://localhost:8000/todos/create',{
       method : 'POST',
       mode:'cors',
-      headers : {
-          'Content-Type':'application/json'
-      },
+      headers : new Headers( {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }),
       body:JSON.stringify(todoswithUUid)
   }).then((data) => {
       console.log(data)
@@ -77,7 +78,7 @@ function App() {
 
   return ( 
   <>
-     <h5 className='wel-text'> List all your work and manage them </h5>
+     <h5 className='wel-text'> List all your work here </h5>
     <div className={disp.divstyle}>
       <Form inputText={inputText} todos={todos} setTodos={setTodos} 
             setInputText={setInputText} setStatus={setStatus} ></Form>

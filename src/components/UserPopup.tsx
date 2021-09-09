@@ -13,7 +13,8 @@ return(
   <Popup trigger={<button>Set Username</button>} className={styles.divstyle} >
     <div className={styles.divstyle}>
         <form>
-            <input placeholder='enter username' className={styles.inputs} onChange={checkUname}></input>
+            <input placeholder='username' className={styles.inputs} onChange={checkUname}></input>
+            <input placeholder='password' className={styles.inputs} type='text'></input>
             <button type='submit' className={styles.submitBtn}>Save</button>
         </form>
     </div>
