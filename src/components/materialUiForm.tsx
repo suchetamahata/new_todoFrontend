@@ -6,6 +6,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import "react-notification-alert/dist/animate.css";
+
 
 interface FormDialogueprops{
   setUname:(a:string)=>void,
@@ -39,6 +41,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       })
     })
     setOpen(false);
+    alert(`Welcome ${uname}`)
   };
 
   const handleLogin= () => {
@@ -61,7 +64,8 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       const JsonPromise = res.json();
       JsonPromise.then((data: LoginResponse) => {
         localStorage.setItem('token', data.token)
-        console.info('User successfully logged in');
+        alert('You are now logged in')
+        console.info('User successfully logged in')
       })
     })
   };

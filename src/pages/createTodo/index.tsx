@@ -1,6 +1,4 @@
-//import { v4 as uuidv4 } from 'uuid'
 
-//import {getUuid} from 'uuid-by-string'
 import { AiOutlineSave } from 'react-icons/ai'
 import "react-notification-alert/dist/animate.css";
 
@@ -19,10 +17,7 @@ export interface TodoType{
   item?: string,
   id?:string |number,
 }
-// interface Event{
-//   type:string,
-//   value:string
-// }
+
 
 function App() {
   const [inputText,setInputText] = useState<string>("");
@@ -68,10 +63,8 @@ function App() {
   }).then((data) => {
       console.log(data)
       alert('Your Todo List is saved')
-      //toast('Your Todo List is saved', {position: toast.POSITION.TOP_CENTER})
   }).catch((error) =>{
       console.error(error)
-      //toast('error in saving',{position: toast.POSITION.TOP_CENTER})
       alert('error in saving')
   })
 }
