@@ -1,12 +1,17 @@
 
 import { AiOutlineSave } from 'react-icons/ai'
-import "react-notification-alert/dist/animate.css";
 
-//import FormDialog from '../../components/materialUiForm';
 import Form from '../../components/Form'
 import TodoList from '../../components/TodoList'
 import React,{useState, useEffect} from 'react'
 import disp from './createTodo.module.css';
+
+import ReactNotification from 'react-notifications-component'
+import { store } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import 'animate.css-react'
+
+
 
 export interface TodoType{
   isCompleted?: boolean,
@@ -60,17 +65,38 @@ function App() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       }),
       body:JSON.stringify(todoswithUUid)
-  }).then((data) => {
-      console.log(data)
-      alert('Your Todo List is saved')
-  }).catch((error) =>{
-      console.error(error)
-      alert('error in saving')
+  }).then((data) => {store.addNotification({
+    title: " Yay! ",
+    message: `Your list has been saved.`,
+    type: "success",
+    insert: "top",
+    container: "top-right",
+    animationIn: ["animate__animated", "animate__fadeIn"],
+     animationOut: ["animate__animated", "animate__fadeOut"],
+    dismiss: {
+        duration: 5000,
+        onScreen: true
+    }
   })
+    console.log(data)
+  }).catch((err) =>store.addNotification({
+    title: "Oops!",
+    message: `Your list is not saved`,
+    type: 'danger',
+    insert: "top",
+    container: "top-right",
+    animationIn: ["animate__animated", "animate__fadeIn"],
+     animationOut: ["animate__animated", "animate__fadeOut"],
+    dismiss: {
+        duration: 5000,
+        onScreen: true
+    }
+  }))
 }
 
   return ( 
   <>
+     <ReactNotification />
      <h5 className='wel-text'> List all your work here </h5>
     <div className={disp.divstyle}>
       <Form inputText={inputText} todos={todos} setTodos={setTodos} 

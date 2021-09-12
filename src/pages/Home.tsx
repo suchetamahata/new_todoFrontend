@@ -13,9 +13,13 @@ const Home =() =>{
     }, [uname])
     return(
         <div>
-            <h3 className='head-text'>{uname}'s ToDo List</h3>
-           <h5 className='wel-text'> What would you like to do?</h5>
-           <FormDialog  setUname={setUname} setPassword={setPassword} password={password} uname={uname}></FormDialog>
+           <div className='head-text'> 
+                <p className='text1'>{uname}'s ToDo List<p className='text2'>Work smarter. List your todos, update and view them.</p>
+                <p className='text2'>Sign in then login to create todos.</p>
+                <p className='text2'>Happy working !</p></p>
+                <img src='https://i.pinimg.com/originals/92/81/bc/9281bc09993d71519d896eb5428044ba.jpg' className='himage'></img>
+                <FormDialog  setUname={setUname} setPassword={setPassword} password={password} uname={uname}></FormDialog>
+            </div>
         </div>
     )
 }

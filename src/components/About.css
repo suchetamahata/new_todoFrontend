@@ -1,0 +1,26 @@
+.modalbg{
+    width: 40rem;
+    height: 10rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalc{
+  border-radius: 1rem;
+  width: 50rem;
+  height: 40rem;
+  background-color: lightgray;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  font-size: 2rem;
+}
+.btn{
+    border-radius: 2rem;
+    background-color: transparent;
+    width: 8rem;
+    justify-content: flex-end;
+}

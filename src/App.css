@@ -1,18 +1,10 @@
-.wel-text{
-  color:lightskyblue;
-  border-radius: 2rem;
-  padding: 0rem; 
-  display: flex;
-  justify-content:center;
-  font-size: 2rem;
-  font-family:sans-serif
-}
+
 .home-text{
   color:midnightblue;
   border-radius: 2rem;
   padding: 0rem; 
   display: flex;
-  justify-content:center;
+  justify-content:flex-start;
   font-size: 1.5rem;
   font-family:sans-serif
 }
@@ -22,41 +14,53 @@
   padding: 2rem; 
   display: flex;
   justify-content:center;
-  font-size: 3.5rem;
+  font-size: 5rem;
   font-family:sans-serif
 }
 
 .linkss{
-  color: rgb(14, 13, 13);
-  padding: 2rem; 
-  font-size: 1rem;
-  font-family:cursive;
+  font-size: 2rem;
+  font-family: monospace;
   list-style-type: none;
+  text-decoration: none;
+  display:flex;
+  justify-content: center;
 }
 
 .cardh{
-  color:rgb(240, 242, 247);
+  color:lightgray;
   margin-right: 2rem;
-  display: flex;
-  -ms-flex-align: start;
-  font-size:1.5rem;
-  padding-bottom: 1rem;
+  -ms-flex-align: flex-start;
+  text-decoration: none;
+  padding: 7rem;
 }
 .card{
-  color: white;
+  color:lightgray;
   margin-right: 2rem;
-  display: flex;
-  -ms-flex-align: start;  
-  font-size:1.5rem;
-  padding-bottom: 1rem;
+  -ms-flex-align:center;  
+  text-decoration: none;
+  padding: 7rem;
 }
 
 .cardv{
-  color: white;
+  color:lightgray;
   margin-right: 2rem;
-  display: flex;
-  -ms-flex-align: start;
-  font-size:1.5rem;
+  -ms-flex-align:flex-end;
+  text-decoration: none;
+  padding: 7rem;
+}
+
+.about-btn{
+  background-color: black;
+  border-color:rgb(10, 118, 226);
+  border-width: .1rem;
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 2.7rem;
+  border-radius: .5rem;
+  color: rgb(0, 81, 255);
+  padding-bottom: 2rem 
+
 }
 
 
@@ -83,4 +87,25 @@
   .wel-text{
     font-size: 1rem;
   }
+}
+
+.himage{
+  border-radius: 25rem;
+  height: 40rem;
+  width: 35rem;
+  justify-content:flex-end;
+}
+.wel-text{
+  color:lightskyblue;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-family:sans-serif;
+}
+ .text1{
+   padding: 10rem;
+ }
+.text2{
+  font-size: 1.5rem;
 }

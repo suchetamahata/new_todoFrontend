@@ -50,7 +50,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       insert: "top",
       container: "top-right",
       animationIn: ["animate__animated", "animate__fadeIn"],
-       animationOut: ["animate__animated", "animate__fadeOut"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
           duration: 5000,
           onScreen: true
@@ -63,7 +63,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       insert: "top",
       container: "top-right",
       animationIn: ["animate__animated", "animate__fadeIn"],
-       animationOut: ["animate__animated", "animate__fadeOut"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
       dismiss: {
           duration: 5000,
           onScreen: true
@@ -101,7 +101,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
           insert: "top",
           container: "top-right",
           animationIn: ["animate__animated", "animate__fadeIn"],
-           animationOut: ["animate__animated", "animate__fadeOut"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
           dismiss: {
               duration: 5000,
               onScreen: true
@@ -115,7 +115,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
         insert: "top",
         container: "top-right",
         animationIn: ["animate__animated", "animate__fadeIn"],
-         animationOut: ["animate__animated", "animate__fadeOut"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
         dismiss: {
             duration: 5000,
             onScreen: true
@@ -134,10 +134,10 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
   }
 
   return (
-    <div className='wel-text'>
+    <div className='about-btn'>
         <ReactNotification />
       <Button variant="outlined" color="primary"  onClick={handleClickOpen}>
-        Login \ Signup
+        Login \ Signup 
       </Button>
       <Dialog open={open} onClose={()=>setOpen(false)} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Signin / Login</DialogTitle>
