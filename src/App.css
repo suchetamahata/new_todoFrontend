@@ -51,16 +51,14 @@
 }
 
 .about-btn{
-  background-color: black;
+  background-color: rgb(96, 98, 231);
   border-color:rgb(10, 118, 226);
   border-width: .1rem;
   font-size: 1.5rem;
   width: 10rem;
   height: 2.7rem;
   border-radius: .5rem;
-  color: rgb(0, 81, 255);
-  padding-bottom: 2rem 
-
+  color: rgb(230, 233, 240);
 }
 
 
@@ -108,4 +106,17 @@
  }
 .text2{
   font-size: 1.5rem;
+}
+
+.loginsignup{ 
+  background-color: black;
+  border-color:rgb(10, 118, 226);
+  border-width: .1rem;
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 3rem;
+  border-radius: .5rem;
+  color: rgb(0, 81, 255);
+  display:flex;
+  justify-content: center;
 }

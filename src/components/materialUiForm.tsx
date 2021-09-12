@@ -99,14 +99,14 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
           message: ` How have you been ${uname} ?`,
           type: "success",
           insert: "top",
-          container: "top-right",
+          container:"top-right",
           animationIn: ["animate__animated", "animate__fadeIn"],
           animationOut: ["animate__animated", "animate__fadeOut"],
           dismiss: {
               duration: 5000,
               onScreen: true
           }
-        })
+        }) 
       }).catch((err) =>
       store.addNotification({
         title: "Login failed",
@@ -134,9 +134,9 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
   }
 
   return (
-    <div className='about-btn'>
+    <div className='loginsignup'>
         <ReactNotification />
-      <Button variant="outlined" color="primary"  onClick={handleClickOpen}>
+      <Button variant="contained" color="primary"  onClick={handleClickOpen}>
         Login \ Signup 
       </Button>
       <Dialog open={open} onClose={()=>setOpen(false)} aria-labelledby="form-dialog-title">
