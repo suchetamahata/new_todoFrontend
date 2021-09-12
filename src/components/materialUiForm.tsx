@@ -6,7 +6,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import "react-notification-alert/dist/animate.css";
+
+import ReactNotification from 'react-notifications-component'
+import { store } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import 'animate.css-react'
 
 
 interface FormDialogueprops{
@@ -39,9 +43,34 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
         "uname": uname,
         "password" : password
       })
+    }).then( (res) => store.addNotification({
+      title: `welcome ${uname}`,
+      message: "Sign up successful",
+      type: "success",
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+       animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+          duration: 5000,
+          onScreen: true
+      }
+    })).catch((err) =>
+    store.addNotification({
+      title: `Couldn't signin. Try again`,
+      message: "Signin failed",
+      type: 'danger',
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+       animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+          duration: 5000,
+          onScreen: true
+      }
     })
+  )
     setOpen(false);
-    alert(`Welcome ${uname}`)
   };
 
   const handleLogin= () => {
@@ -64,9 +93,35 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       const JsonPromise = res.json();
       JsonPromise.then((data: LoginResponse) => {
         localStorage.setItem('token', data.token)
-        alert('You are now logged in')
         console.info('User successfully logged in')
+        store.addNotification({
+          title: " Login Successful",
+          message: ` How have you been ${uname} ?`,
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+           animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+              duration: 5000,
+              onScreen: true
+          }
+        })
+      }).catch((err) =>
+      store.addNotification({
+        title: "Login failed",
+        message: `Wrong username/password. Try again.`,
+        type: 'danger',
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+         animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
+            duration: 5000,
+            onScreen: true
+        }
       })
+    )
     })
   };
 
@@ -80,6 +135,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
 
   return (
     <div className='wel-text'>
+        <ReactNotification />
       <Button variant="outlined" color="primary"  onClick={handleClickOpen}>
         Login \ Signup
       </Button>
