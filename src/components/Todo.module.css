@@ -24,13 +24,13 @@
     font-size:1.7rem ;
     font-family:cursive ;
     width: 12rem;
-    height:2.7rem;
+    height: 3rem;
     border-width: 1rem;
     background-color: rgb(175, 161, 139);
     border-radius: .5rem;
     border-color: rgb(92, 91, 90);
     margin:0.5rem;
-    padding:0.2rem;
+    padding: .6rem;
 }
 
 .completed{

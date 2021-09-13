@@ -13,10 +13,10 @@ import 'react-notifications-component/dist/theme.css'
 import 'animate.css-react'
 
 
-interface FormDialogueprops{
-  setUname:(a:string)=>void,
-  setPassword:(a:string)=>void,
-  password:string,
+interface FormDialogueprops {
+  setUname: (a: string) => void,
+  setPassword: (a: string) => void,
+  password: string,
   uname: string
 }
 
@@ -25,13 +25,13 @@ interface LoginResponse {
   token: string
 }
 
-export default function FormDialog({setUname, setPassword, password, uname}:FormDialogueprops) {
+export default function FormDialog({ setUname, setPassword, password, uname }: FormDialogueprops) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleSignUp= () => {
+  const handleSignUp = () => {
     setUname(uname)
     fetch('http://localhost:8000/user/create', {
       method: 'POST',
@@ -41,44 +41,78 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       },
       body: JSON.stringify({
         "uname": uname,
-        "password" : password
+        "password": password
       })
-    }).then( (res) => store.addNotification({
-      title: `welcome ${uname}`,
-      message: "Sign up successful",
-      type: "success",
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
+    }).then((res: Response) => {
+      if (res.status === 400) {
+        store.addNotification({
+          title: `Username Unavailable`,
+          message: "try another username",
+          type: "danger",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true
+          }
+        })
+      }
+      else if(res.status === 403){
+        store.addNotification({
+          title: `Error`,
+          message: "not authorized",
+          type: "danger",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true
+          }
+        })
+      }
+      else {
+        store.addNotification({
+          title: `welcome ${uname}`,
+          message: "Sign up successful",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true
+          }
+        })
+      }
+    }).catch((err) =>
+      store.addNotification({
+        title: `Couldn't signin. Try again`,
+        message: "Signin failed",
+        type: 'danger',
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
           duration: 5000,
           onScreen: true
-      }
-    })).catch((err) =>
-    store.addNotification({
-      title: `Couldn't signin. Try again`,
-      message: "Signin failed",
-      type: 'danger',
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-          duration: 5000,
-          onScreen: true
-      }
-    })
-  )
+        }
+      })
+    )
     setOpen(false);
   };
 
-  const handleLogin= () => {
+  const handleLogin = () => {
     localStorage.setItem('uname', uname);
     setOpen(false)
     setUname(uname)
     console.log(uname)
-    const ResponsePromise = fetch('http://localhost:8000/user/login',{
+    const ResponsePromise = fetch('http://localhost:8000/user/login', {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -86,7 +120,7 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
       },
       body: JSON.stringify({
         "uname": uname,
-        "password" : password
+        "password": password
       })
     })
     ResponsePromise.then((res: Response) => {
@@ -99,47 +133,47 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
           message: ` How have you been ${uname} ?`,
           type: "success",
           insert: "top",
-          container:"top-right",
+          container: "top-right",
           animationIn: ["animate__animated", "animate__fadeIn"],
           animationOut: ["animate__animated", "animate__fadeOut"],
           dismiss: {
-              duration: 5000,
-              onScreen: true
-          }
-        }) 
-      }).catch((err) =>
-      store.addNotification({
-        title: "Login failed",
-        message: `Wrong username/password. Try again.`,
-        type: 'danger',
-        insert: "top",
-        container: "top-right",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-        dismiss: {
             duration: 5000,
             onScreen: true
-        }
-      })
-    )
+          }
+        })
+      }).catch((err) =>
+        store.addNotification({
+          title: "Login failed",
+          message: `Wrong username/password. Try again.`,
+          type: 'danger',
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: true
+          }
+        })
+      )
     })
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>{
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     localStorage.setItem('uname', e.target.value);
     setUname(e.target.value)
   }
-  const getPassword = (e: React.ChangeEvent<HTMLTextAreaElement>)=> {
-      setPassword(e.target.value)
+  const getPassword = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setPassword(e.target.value)
   }
 
   return (
     <div className='loginsignup'>
-        <ReactNotification />
-      <Button variant="contained" color="primary"  onClick={handleClickOpen}>
-        Login \ Signup 
+      <ReactNotification />
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        Login \ Signup
       </Button>
-      <Dialog open={open} onClose={()=>setOpen(false)} aria-labelledby="form-dialog-title">
+      <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Signin / Login</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -155,13 +189,13 @@ export default function FormDialog({setUname, setPassword, password, uname}:Form
             onChange={handleChange}
           />
           <TextField
-          autoFocus
-          margin="dense"
-          id="password"
-          label="password"
-          type="string"
-          fullWidth
-          onChange={getPassword} >
+            autoFocus
+            margin="dense"
+            id="password"
+            label="password"
+            type="string"
+            fullWidth
+            onChange={getPassword} >
           </TextField>
         </DialogContent>
         <DialogActions>
