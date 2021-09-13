@@ -11,9 +11,8 @@
 .head-text{
   color: white;
   border-radius: 2rem;
-  padding: 2rem; 
   display: flex;
-  justify-content:center;
+  justify-content:space-around;
   font-size: 5rem;
   font-family:sans-serif
 }
@@ -25,6 +24,8 @@
   text-decoration: none;
   display:flex;
   justify-content: center;
+  justify-content: space-around;
+  margin-bottom:8%
 }
 
 .cardh{
@@ -32,14 +33,12 @@
   margin-right: 2rem;
   -ms-flex-align: flex-start;
   text-decoration: none;
-  padding: 7rem;
 }
 .card{
   color:lightgray;
   margin-right: 2rem;
   -ms-flex-align:center;  
   text-decoration: none;
-  padding: 7rem;
 }
 
 .cardv{
@@ -47,7 +46,6 @@
   margin-right: 2rem;
   -ms-flex-align:flex-end;
   text-decoration: none;
-  padding: 7rem;
 }
 
 .about-btn{
@@ -60,38 +58,16 @@
   border-radius: .5rem;
   color: rgb(230, 233, 240);
 }
-
-
-@media (max-width:425px) {
-  .head-text{
-    font-size: 2.5rem;
-  }
-  .wel-text{
-    font-size: 2rem;
-  }
-}
-@media (max-width:375px){
-  .head-text{
-    font-size: 2rem;
-  }
-  .wel-text{
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 320px) {
-  .head-text{
-    font-size: 1.5rem;
-  }
-  .wel-text{
-    font-size: 1rem;
-  }
-}
-
 .himage{
   border-radius: 25rem;
-  height: 40rem;
-  width: 35rem;
-  justify-content:flex-end;
+  /* height: 40rem; */
+  width: 40%;
+}
+.himage2{
+  border-radius: 20rem;
+  visibility: hidden;
+  width: 80%;
+  margin: 10%
 }
 .wel-text{
   color:lightskyblue;
@@ -101,9 +77,8 @@
   font-size: 3.5rem;
   font-family:sans-serif;
 }
- .text1{
-   padding: 10rem;
- }
+ /* .text1{
+ } */
 .text2{
   font-size: 1.5rem;
 }
@@ -118,5 +93,52 @@
   border-radius: .5rem;
   color: rgb(0, 81, 255);
   display:flex;
-  justify-content: center;
+  justify-content:space-around;
 }
+
+@media (max-width:425px) {
+  .head-text{
+    font-size: 2.5rem;
+  }
+  .wel-text{
+    font-size: 2rem;
+  }
+  .text2{
+    font-size: 1rem;
+  }  
+  .himage{
+    visibility: hidden;
+  }
+  .himage2{
+    visibility: visible;
+  }
+  .linkss{
+    margin-bottom: 20%;
+  }
+  .about-btn{
+    margin-bottom: 10%;
+  }
+}
+@media (max-width:375px){
+  .head-text{
+    font-size: 2rem;
+  }
+  .wel-text{
+    font-size: 2.5rem;
+  }
+  .text2{
+    font-size: 1rem;
+  }
+}
+@media (max-width: 320px) {
+  .head-text{
+    font-size: 2rem;
+  }
+  .wel-text{
+    font-size: 2rem;
+  }
+  .text2{
+    font-size: 1rem;
+  }
+}
+
