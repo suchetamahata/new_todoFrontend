@@ -20,12 +20,12 @@ interface FormDialogueprops {
   uname: string
 }
 
-interface LoginResponse {
-  message: string,
-  token: string
-}
+// interface LoginResponse {
+//   message: string,
+//   token: string
+// }
 
-export default function FormDialog({ setUname, setPassword, password, uname }: FormDialogueprops) {
+export default function SignupForm({ setUname, setPassword, password, uname }: FormDialogueprops) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,6 +33,7 @@ export default function FormDialog({ setUname, setPassword, password, uname }: F
 
   const handleSignUp = () => {
     setUname(uname)
+
     fetch('http://localhost:8000/user/create', {
       method: 'POST',
       mode: 'cors',
@@ -59,7 +60,7 @@ export default function FormDialog({ setUname, setPassword, password, uname }: F
           }
         })
       }
-      else if(res.status === 403){
+      else if (res.status === 403) {
         store.addNotification({
           title: `Error`,
           message: "not authorized",
@@ -107,58 +108,7 @@ export default function FormDialog({ setUname, setPassword, password, uname }: F
     setOpen(false);
   };
 
-  const handleLogin = () => {
-    localStorage.setItem('uname', uname);
-    setOpen(false)
-    setUname(uname)
-    console.log(uname)
-    const ResponsePromise = fetch('http://localhost:8000/user/login', {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "uname": uname,
-        "password": password
-      })
-    })
-    ResponsePromise.then((res: Response) => {
-      const JsonPromise = res.json();
-      JsonPromise.then((data: LoginResponse) => {
-        localStorage.setItem('token', data.token)
-        console.info('User successfully logged in')
-        store.addNotification({
-          title: " Login Successful",
-          message: ` How have you been ${uname} ?`,
-          type: "success",
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animate__animated", "animate__fadeIn"],
-          animationOut: ["animate__animated", "animate__fadeOut"],
-          dismiss: {
-            duration: 5000,
-            onScreen: true
-          }
-        })
-      }).catch((err) =>
-        store.addNotification({
-          title: "Login failed",
-          message: `Wrong username/password. Try again.`,
-          type: 'danger',
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animate__animated", "animate__fadeIn"],
-          animationOut: ["animate__animated", "animate__fadeOut"],
-          dismiss: {
-            duration: 5000,
-            onScreen: true
-          }
-        })
-      )
-    })
-  };
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     localStorage.setItem('uname', e.target.value);
     setUname(e.target.value)
@@ -168,13 +118,13 @@ export default function FormDialog({ setUname, setPassword, password, uname }: F
   }
 
   return (
-    <div className='loginsignup'>
+    <>
       <ReactNotification />
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        Login \ Signup
+        Signup
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Signin / Login</DialogTitle>
+        <DialogTitle id="form-dialog-title">Signup</DialogTitle>
         <DialogContent>
           <DialogContentText>
             If you are a new user please set your UserId. If you are a user, Login
@@ -193,7 +143,7 @@ export default function FormDialog({ setUname, setPassword, password, uname }: F
             margin="dense"
             id="password"
             label="password"
-            type="string"
+            type="password"
             fullWidth
             onChange={getPassword} >
           </TextField>
@@ -202,11 +152,8 @@ export default function FormDialog({ setUname, setPassword, password, uname }: F
           <Button onClick={handleSignUp} color="primary">
             Sign Up
           </Button>
-          <Button onClick={handleLogin} color="primary">
-            Login
-          </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }

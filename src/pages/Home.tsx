@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import FormDialog from '../components/materialUiForm'
+import SignupForm from '../components/SignupForm'
+import LoginForm from '../components/LoginForm'
 
 const Home =() =>{
 
@@ -12,7 +13,11 @@ const Home =() =>{
         }
     }, [uname])
     return(
-        <div>
+        <> 
+         <div className='lsindiv'>
+                <SignupForm  setUname={setUname} setPassword={setPassword} password={password} uname={uname}></SignupForm> 
+              <LoginForm  setUname={setUname} setPassword={setPassword} password={password} uname={uname}></LoginForm> 
+            </div>
             <div className='head-text'>
                 <p className='text1'>{uname}'s ToDo List<p className='text2'>Work smarter. List your todos, update and view them.</p>
                 <p className='text2'>Sign in then login to create todos.</p>
@@ -20,9 +25,9 @@ const Home =() =>{
                 </p>
                 <img src='https://i.pinimg.com/originals/92/81/bc/9281bc09993d71519d896eb5428044ba.jpg' className='himage' alt='work desk'></img>
             </div>
-            <FormDialog  setUname={setUname} setPassword={setPassword} password={password} uname={uname}></FormDialog>
+           
             <img src='https://i.pinimg.com/originals/92/81/bc/9281bc09993d71519d896eb5428044ba.jpg' className='himage2' alt='work desk'></img>
-        </div>
+        </>
     )
 }
 export default Home

@@ -4,8 +4,11 @@
 
 body {
   margin:2rem;
-  background-color:black;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  overflow: hidden;
+  background-image: url('https://mocah.org/uploads/posts/4561048-cube-black-orange-white-shiny-reflection-minimalism-simple-3d.jpg');
+  background-size: contain;
+  max-width: 100%
 }
 
 code {
@@ -15,4 +18,6 @@ code {
 
 html{
   font-size: 62.5%;
+  overflow: hidden;
 }
+
