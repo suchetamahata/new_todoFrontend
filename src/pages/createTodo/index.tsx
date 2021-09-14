@@ -10,7 +10,7 @@ import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import 'animate.css-react'
-
+import { Tooltip } from '@material-ui/core';
 
 
 export interface TodoType{
@@ -106,8 +106,9 @@ function App() {
       <TodoList todos={todos} setTodos={setTodos} filterTodos={filterTodos}></TodoList>
     </div>
      <div className={disp.divBtn}> 
-       <button onClick={submitToDataBase} type='submit' className={disp.subButton} >Save 
-       <AiOutlineSave/></button>
+     <Tooltip title='Save your whole todo list'>
+        <button onClick={submitToDataBase} type='submit' className={disp.subButton} >Save <AiOutlineSave/></button>
+      </Tooltip>
       </div>
   </>
   );

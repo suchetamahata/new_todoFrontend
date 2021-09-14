@@ -127,7 +127,7 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
         <DialogTitle id="form-dialog-title">Signup</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            If you are a new user please set your UserId. If you are a user, Login
+            Create your own userid. Enjoy smart working.
           </DialogContentText>
           <TextField
             autoFocus
@@ -149,7 +149,7 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
           </TextField>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleSignUp} color="primary">
+          <Button onClick={handleSignUp} color="primary" >
             Sign Up
           </Button>
         </DialogActions>

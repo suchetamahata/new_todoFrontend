@@ -1,7 +1,5 @@
 .modalbg{
     position: fixed;
-    width: 40rem;
-    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,17 +7,21 @@
 
 .modalc{
   border-radius: 1rem;
-  width: 50rem;
-  height: 40rem;
-  background-color:rgb(168, 164, 164);
+  width: 35rem;
+  height: 27rem;
+  background-color:rgb(85, 29, 29);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 2rem;
   font-size: 2rem;
+  color:white;
 }
 .btn{
     border-radius: 2rem;
     background-color: transparent;
+    border-color: whitesmoke;
     width: 8rem;
+    color:white;
+    height: 2rem;
 }

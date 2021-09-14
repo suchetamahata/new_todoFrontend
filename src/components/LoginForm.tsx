@@ -99,7 +99,7 @@ export default function LoginForm({ setUname, setPassword, password, uname }: Fo
         <DialogTitle id="form-dialog-title">Login</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            If you are a new user please set your UserId. If you are a user, Login
+            Enter the following to login. If you are a new user, signup first. 
           </DialogContentText>
           <TextField
             autoFocus
