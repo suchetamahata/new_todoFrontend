@@ -5,6 +5,7 @@ import Form from '../../components/Form'
 import TodoList from '../../components/TodoList'
 import React,{useState, useEffect} from 'react'
 import disp from './createTodo.module.css';
+import { Backend } from '../../hostURI'
 
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
@@ -57,7 +58,7 @@ function App() {
       uname
     }
   })
-  fetch('http://localhost:8000/todos/create',{
+  fetch(`${Backend}/todos/create`,{
       method : 'POST',
       mode:'cors',
       headers : new Headers( {

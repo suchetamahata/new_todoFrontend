@@ -7,23 +7,26 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import 'animate.css-react'
+
+import { Backend } from '../hostURI';
 
 interface FormDialogueprops {
     setUname: (a: string) => void,
     setPassword: (a: string) => void,
     password: string,
-    uname: string
+    uname: string,
+    setLS: (a: boolean) => void,
+    setLO: (a: boolean) => void,
   }
   
   interface LoginResponse {
     message: string,
     token: string
   }
-export default function LoginForm({ setUname, setPassword, password, uname }: FormDialogueprops) {
+export default function LoginForm({ setUname, setPassword, password, uname, setLS, setLO }: FormDialogueprops) {
    
   const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
@@ -35,7 +38,7 @@ export default function LoginForm({ setUname, setPassword, password, uname }: Fo
       setUname(uname)
       console.log(uname)
   
-      fetch('http://localhost:8000/user/login', {
+      fetch(`${Backend}/user/login`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -59,12 +62,15 @@ export default function LoginForm({ setUname, setPassword, password, uname }: Fo
             animationIn: ["animate__animated", "animate__fadeIn"],
             animationOut: ["animate__animated", "animate__fadeOut"],
             dismiss: {
-              duration: 5000,
+              duration: 3000,
               onScreen: true
             }
-          })
-        }).catch((err) =>
-          store.addNotification({
+          }) 
+          setLO(true)
+          setLS(false)
+        }) 
+      }).catch((err) =>
+            store.addNotification({
             title: "Login failed",
             message: `Wrong username/password. Try again.`,
             type: 'danger',
@@ -73,12 +79,11 @@ export default function LoginForm({ setUname, setPassword, password, uname }: Fo
             animationIn: ["animate__animated", "animate__fadeIn"],
             animationOut: ["animate__animated", "animate__fadeOut"],
             dismiss: {
-              duration: 5000,
+              duration: 3000,
               onScreen: true
             }
           })
         )
-      })
       setOpen(false)
     };
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -91,7 +96,6 @@ export default function LoginForm({ setUname, setPassword, password, uname }: Fo
   
   return (
     <>
-      <ReactNotification />
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Login 
       </Button>

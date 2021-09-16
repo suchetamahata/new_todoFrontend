@@ -5,6 +5,7 @@ import CachedRoundedIcon from '@material-ui/icons/CachedRounded';
 import Todo from '../../components/Todo'
 import '../../App.css'
 import { TodoType } from '../createTodo/index'
+import { Backend } from '../../hostURI';
 
 interface param {
     uname: string
@@ -19,7 +20,7 @@ const ViewTodos = () => {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch(`http://localhost:8000/todos/listByName/${params.uname}`, {
+                const response = await fetch(`${Backend}/todos/listByName/${params.uname}`, {
                     method: 'GET',
                     mode: 'cors',
                 });

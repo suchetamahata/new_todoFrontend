@@ -7,17 +7,19 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import 'animate.css-react'
+
+import { Backend } from '../hostURI';
 
 
 interface FormDialogueprops {
   setUname: (a: string) => void,
   setPassword: (a: string) => void,
   password: string,
-  uname: string
+  uname: string,
+  setS: (a: boolean) => void,
 }
 
 // interface LoginResponse {
@@ -25,7 +27,7 @@ interface FormDialogueprops {
 //   token: string
 // }
 
-export default function SignupForm({ setUname, setPassword, password, uname }: FormDialogueprops) {
+export default function SignupForm({ setUname, setPassword, password, uname, setS }: FormDialogueprops) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,7 +36,7 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
   const handleSignUp = () => {
     setUname(uname)
 
-    fetch('http://localhost:8000/user/create', {
+    fetch(`${Backend}/user/create`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -48,7 +50,7 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
       if (res.status === 400) {
         store.addNotification({
           title: `Username Unavailable`,
-          message: "try another username",
+          message: "try another username OR login if you have an account",
           type: "danger",
           insert: "top",
           container: "top-right",
@@ -89,6 +91,7 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
             onScreen: true
           }
         })
+        setS(false)
       }
     }).catch((err) =>
       store.addNotification({
@@ -105,8 +108,8 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
         }
       })
     )
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -119,7 +122,6 @@ export default function SignupForm({ setUname, setPassword, password, uname }: F
 
   return (
     <>
-      <ReactNotification />
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Signup
       </Button>

@@ -5,19 +5,19 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css'
-import { useState } from 'react';
+
+import ReactNotification from 'react-notifications-component'
 
 import CreateTodos from './pages/createTodo';
 import ViewTodos from './pages/viewTodo';
 import ViewUuid from './components/ViewUuid';
 import Home from './pages/Home';
-import About from './components/About';
 
 const App = () => {
 
-const [modal, setModal]= useState<boolean>(false)
 
-return(<>
+return(<div>           
+    <ReactNotification />
    <Router>
        <div>
            <ul className='linkss'>
@@ -31,8 +31,6 @@ return(<>
                    <Link to='/view'  className='cardv' > View </Link>
                </li>
            </ul>
-           <button className='about-btn' onClick={()=> setModal(true)}>About</button>
-           {modal && <About setModal={setModal}/>}
        </div>
        <Switch>
             <Route exact path='/'>
@@ -49,7 +47,7 @@ return(<>
            </Route>
        </Switch>
    </Router>
-   </>
+   </div>
 )
 }
 

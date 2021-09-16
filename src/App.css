@@ -8,13 +8,13 @@
   font-size: 1.5rem;
   font-family:sans-serif
 }
+
 .head-text{
   color: white;
-  border-radius: 2rem;
   display: flex;
   justify-content:space-around;
   font-size: 5rem;
-  font-family:sans-serif
+  font-family:sans-serif;
 }
 
 .linkss{
@@ -25,6 +25,7 @@
   display:flex;
   justify-content: center;
   justify-content: space-around;
+  margin-bottom:7%
 }
 
 .cardh{
@@ -62,13 +63,15 @@
   height: 2.7rem;
   border-radius: .5rem;
   color:black;
-  margin-top:4%;
 }
+/* .div-about{
+  display:flex;
+} */
 
 .lsindiv{
   display:flex;
-  justify-content:space-evenly;
-  margin: 3rem;
+  justify-content: space-evenly ;
+  margin:5%;
 }
 
 .himage{
@@ -141,4 +144,3 @@
     font-size: 1rem;
   }
 }
-
