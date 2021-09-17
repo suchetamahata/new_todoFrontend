@@ -16,7 +16,7 @@ import Home from './pages/Home';
 const App = () => {
 
 
-return(<div>           
+return(<>           
     <ReactNotification />
    <Router>
        <div>
@@ -47,7 +47,7 @@ return(<div>
            </Route>
        </Switch>
    </Router>
-   </div>
+   </>
 )
 }
 

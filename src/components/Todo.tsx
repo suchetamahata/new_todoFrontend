@@ -13,7 +13,7 @@ interface TodoProp{
   todos: TodoType[],
   setTodos:(b: TodoType[]) => void,
   disabled?: boolean,
-  key: number|string|undefined,
+  key: number| string | undefined,
   length?: number
 }
 

@@ -39,13 +39,13 @@ const ViewTodos = () => {
     if (length === undefined) {
         return (<>
             <h5 className='wel-text'> You are doing great!</h5>
-            <h3 className='head-text'> Loading ... <CachedRoundedIcon className='head-text'/></h3>
+            <h4 className='head-text'> Loading ... <CachedRoundedIcon className='head-text'/></h4>
         </>)
     }
     else if (length === 0) {
         return (<>
              <h5 className='wel-text'>  You are doing great!</h5>
-            <h3 className='head-text'> Error! something went wrong </h3>
+            <h4 className='head-text'> Error! enter correct username </h4>
         </>)}
     else {
         return (<>
@@ -55,7 +55,7 @@ const ViewTodos = () => {
                 return (
                     <Todo setTodos={setTodos}
                         todos={todos}
-                        key={todo._id}
+                        key={todo.id}
                         item={todo.item}
                         todo={todo}
                         disabled={true}

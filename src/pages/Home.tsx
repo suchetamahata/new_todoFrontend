@@ -24,10 +24,10 @@ const Home = () => {
     return (
         <>
             <div className='head-text'>
-                <p className='text1'>{uname}'s ToDo List<p className='text2'>Work smarter. List your todos, update and view them.</p>
+                <h6 className='text1'>{uname}'s ToDo List<p className='text2'>Work smarter. List your todos, update and view them.</p>
                     <p className='text2'>Sign in then login to create todos.</p>
                     <p className='text2'>Happy working !</p>
-                </p>
+                </h6>
                 <img src='https://wallpapercave.com/wp/wp5973544.jpg' className='himage' alt='work desk'></img>
                 <button className='about-btn' onClick={() => setModal(true)}>About</button>
                 {modal && <About setModal={setModal} />}
